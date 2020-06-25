@@ -13,59 +13,39 @@ export default (props) => {
   const [chosenCurrency, setChosenCurrency] = useState(currencies[0]);
   const [realAmount, setRealAmount] = useState(10000);
   const marks = [
-    { value: 10000, label: "1т.", sliderVal: 1000 },
-    { value: 20000, label: "10т.", sliderVal: 10000 },
-    { value: 30000, label: "50т.", sliderVal: 50000 },
-    { value: 40000, label: "100т.", sliderVal: 100000 },
-    { value: 50000, label: "300т.", sliderVal: 300000 },
-    { value: 60000, label: "500т.", sliderVal: 500000 },
-    { value: 70000, label: "1м", sliderVal: 1000000 },
+    { value: 0, label: "1т.", sliderVal: 1000 },
+    { value: 1, label: "10т.", sliderVal: 10000 },
+    { value: 2, label: "50т.", sliderVal: 50000 },
+    { value: 3, label: "100т.", sliderVal: 100000 },
+    { value: 4, label: "300т.", sliderVal: 300000 },
+    { value: 5, label: "500т.", sliderVal: 500000 },
+    { value: 6, label: "1м", sliderVal: 1000000 },
   ];
   const comission = 0.0007902;
   function valuetext(value) {
     return value;
   }
   function getMoneyAmount(e, val) {
-    let percent = +("0." + (val + "")[1] + (val + "")[2]);
-    if (marks[+(val + "")[0]] !== marks[marks.length]) {
+    if (marks[Math.floor(val)] !== marks[marks.length - 1]) {
       setMoneyAmount(
         Math.round(
-          (marks[+(val + "")[0]].sliderVal -
-            marks[+(val + "")[0] - 1].sliderVal) *
-            percent +
-            marks[+(val + "")[0] - 1].sliderVal
+          (marks[Math.floor(val) + 1].sliderVal -
+            marks[Math.floor(val)].sliderVal) *
+            (val - Math.floor(val)) +
+            marks[Math.floor(val)].sliderVal
         )
           .toString()
           .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
       );
-    } else
+    } else {
       setMoneyAmount(
         marks[marks.length - 1].sliderVal
           .toString()
           .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
       );
-  }
-  function getRealSliderValue() {
-    let tmp;
-    for (let i = 1; i < marks.length; i++) {
-      if (moneyAmountNumber < marks[i].sliderVal) {
-        let percent =
-          ((marks[i].sliderVal - marks[i - 1].sliderVal) / moneyAmountNumber) *
-          0.01;
-        tmp =
-          (marks[i].value - marks[i - 1].value) * percent + marks[i - 1].value;
-        break;
-      } else if (moneyAmountNumber < marks[0].sliderVal) {
-        tmp = 10000;
-        break;
-      } else if (moneyAmountNumber > marks[marks.length - 1].sliderVal) {
-        tmp = 70000;
-      }
     }
-    console.log(tmp);
-
-    /* setRealAmount(tmp); */
   }
+  function getRealSliderValue() {}
   function typeFunction(event) {
     setMoneyAmount(event.target.value);
   }
@@ -109,11 +89,11 @@ export default (props) => {
           />
           <div className="calculator__slider-wrapper">
             <Slider
-              defaultValue={10000}
+              defaultValue={0}
               getAriaValueText={valuetext}
-              min={10000}
-              max={70000}
-              step={1}
+              min={0}
+              max={6}
+              step={0.001}
               marks={marks}
               onChange={getMoneyAmount}
             />
