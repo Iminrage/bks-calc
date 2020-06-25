@@ -11,7 +11,7 @@ export default (props) => {
   const [moneyAmountNumber, setMoneyAmountNumber] = useState(1000);
   const [currencyChanging, setCurrencyChanging] = useState(false);
   const [chosenCurrency, setChosenCurrency] = useState(currencies[0]);
-  const [realAmount, setRealAmount] = useState(10000);
+  const [realAmount, setRealAmount] = useState(0);
   const marks = [
     { value: 0, label: "1т.", sliderVal: 1000 },
     { value: 1, label: "10т.", sliderVal: 10000 },
@@ -44,8 +44,35 @@ export default (props) => {
           .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
       );
     }
+    setRealAmount(val);
   }
-  function getRealSliderValue() {}
+  function getRealSliderValue() {
+    if (moneyAmountNumber <= 1000) {
+      setRealAmount(1000);
+    } else {
+      for (var i = 1; i < marks.length; i++) {
+        if (moneyAmountNumber < marks[i].sliderVal) {
+          console.log(
+            (
+              moneyAmountNumber / marks[i].sliderVal +
+              marks[i - 1].value
+            ).toFixed(3)
+          );
+
+          setRealAmount(
+            (
+              moneyAmountNumber /
+                (marks[i].sliderVal - marks[i - 1].sliderVal) +
+              marks[i - 1].value
+            ).toFixed(5)
+          );
+          break;
+        } else if (moneyAmountNumber >= 1000000) {
+          setRealAmount(1000000);
+        }
+      }
+    }
+  }
   function typeFunction(event) {
     setMoneyAmount(event.target.value);
   }
@@ -68,7 +95,6 @@ export default (props) => {
   }
   useEffect(() => {
     getMoneyAmountNumber();
-    getRealSliderValue();
   }, [moneyAmount]);
   return (
     <div className="calculator">
@@ -94,6 +120,7 @@ export default (props) => {
               min={0}
               max={6}
               step={0.001}
+              value={realAmount}
               marks={marks}
               onChange={getMoneyAmount}
             />
