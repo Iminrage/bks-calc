@@ -1,0 +1,44 @@
+[
+  {
+    "currency": "usd",
+    "cost": "63.2725",
+    "symbol": "$",
+    "icon": "./img/usd.svg"
+  },
+  {
+    "currency": "eur",
+    "cost": "63.3725",
+    "symbol": "€",
+    "icon": "./img/eur.svg"
+  },
+  {
+    "currency": "cny",
+    "cost": "63.4725",
+    "symbol": "¥",
+    "icon": "./img/cny.svg"
+  },
+  {
+    "currency": "gpb",
+    "cost": "63.5725",
+    "symbol": "£",
+    "icon": "./img/gpb.svg"
+  },
+  {
+    "currency": "jpn",
+    "cost": "63.6725",
+    "symbol": "¥",
+    "icon": "./img/jpn.svg"
+  },
+  {
+    "currency": "try",
+    "cost": "63.7725",
+    "symbol": "₺",
+    "icon": "./img/try.svg"
+  },
+  {
+    "currency": "kaz",
+    "cost": "63.8725",
+    "symbol": "₸",
+    "icon": "./img/kaz.svg"
+  }
+]
