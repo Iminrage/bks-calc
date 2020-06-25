@@ -6,6 +6,9 @@
   align-items: center;
   border: 1px solid #e1e1e1;
   margin-bottom: 32px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 }
 .purchase-amount__title {
   display: block;

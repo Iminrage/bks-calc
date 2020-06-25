@@ -6,6 +6,9 @@
 }
 .MuiSlider-root {
   color: #0073f1 !important;
+  @media screen and (max-width: 768px) {
+    display: none !important;
+  }
 }
 .MuiSlider-rail {
   color: #e1e1e1 !important;
