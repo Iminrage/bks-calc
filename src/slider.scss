@@ -1,0 +1,25 @@
+.MuiSlider-marked {
+  padding: 0 20px;
+}
+.MuiSlider-mark {
+  display: none;
+}
+.MuiSlider-root {
+  color: #0073f1 !important;
+}
+.MuiSlider-rail {
+  color: #e1e1e1 !important;
+}
+.MuiSlider-thumb {
+  color: white;
+  width: 16px !important;
+  height: 16px !important;
+  margin-top: -8px !important;
+  margin-left: -8px !important;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) !important;
+  &:hover {
+    width: 25px;
+    height: 25px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) !important;
+  }
+}
