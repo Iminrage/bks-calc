@@ -170,6 +170,9 @@ export default (props) => {
             </div>
           </div>
         </div>
+        <div className="calculator__button-case">
+          <button className="calculator__button">Узнать больше</button>
+        </div>
       </div>
     </div>
   );
