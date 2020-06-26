@@ -47,7 +47,7 @@ export default (props) => {
     setRealAmount(val);
   }
   function getRealSliderValue(e) {
-    let amountOfMoney = +e.target.value.replace(/\s/g, "");
+    let amountOfMoney = +e.target.value.replace(/[^\d]/g, "");
     if (amountOfMoney <= 1000) {
       setRealAmount(0);
     } else {
@@ -68,14 +68,20 @@ export default (props) => {
     }
   }
   function typeFunction(event) {
-    setMoneyAmount(event.target.value);
+    setMoneyAmount(event.target.value.replace(/[^\d]/g, ""));
   }
-  function moneySeparate() {
-    setMoneyAmount(
-      moneyAmount
-        .replace(/\s/g, "")
-        .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
-    );
+  function moneyCheck() {
+    if (+moneyAmount.replace(/[^\d]/g, "") < 1000) {
+      setMoneyAmount("1 000");
+    } else if (+moneyAmount.replace(/[^\d]/g, "") > 1000000) {
+      setMoneyAmount("1 000 000");
+    } else {
+      setMoneyAmount(
+        moneyAmount
+          .replace(/\s/g, "")
+          .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
+      );
+    }
   }
   function currencyChange() {
     setCurrencyChanging(!currencyChanging);
@@ -106,7 +112,7 @@ export default (props) => {
               amount={moneyAmount}
               typeFunction={typeFunction}
               chosenCurrency={chosenCurrency}
-              moneySeparate={moneySeparate}
+              moneyCheck={moneyCheck}
               input={getRealSliderValue}
             />
             <div className="calculator__slider-wrapper">
