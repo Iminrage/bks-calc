@@ -1,27 +1,39 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f83ffc34b9e9acdf1a550585049c0828",
+    "revision": "c37a84a9abd51e52ce11672dfe7b7884",
     "url": "/bks-calc/index.html"
   },
   {
-    "revision": "ddf3a301d6c86582114d",
-    "url": "/bks-calc/static/css/main.20a43277.chunk.css"
+    "revision": "31c631f379993c0028b3",
+    "url": "/bks-calc/static/css/main.7240923a.chunk.css"
   },
   {
-    "revision": "f9acff385283ce75c3a0",
-    "url": "/bks-calc/static/js/2.b9dcf4aa.chunk.js"
+    "revision": "f7d4ce59439502f862b1",
+    "url": "/bks-calc/static/js/2.0c8d0d55.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/bks-calc/static/js/2.b9dcf4aa.chunk.js.LICENSE.txt"
+    "url": "/bks-calc/static/js/2.0c8d0d55.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ddf3a301d6c86582114d",
-    "url": "/bks-calc/static/js/main.cc335aaf.chunk.js"
+    "revision": "31c631f379993c0028b3",
+    "url": "/bks-calc/static/js/main.6f704114.chunk.js"
   },
   {
     "revision": "eb6c1e1d654c69c03b6f",
     "url": "/bks-calc/static/js/runtime-main.99f25b8c.js"
+  },
+  {
+    "revision": "45656b73e1a07f979bfb56559b359b07",
+    "url": "/bks-calc/static/media/Geometria-Medium.45656b73.woff"
+  },
+  {
+    "revision": "86b1b85bdce1520f605f5ebe8ba1000c",
+    "url": "/bks-calc/static/media/Geometria-Medium.86b1b85b.ttf"
+  },
+  {
+    "revision": "90152a4f5c76144f11d47dcf43ae12d9",
+    "url": "/bks-calc/static/media/Geometria-Medium.90152a4f.eot"
   },
   {
     "revision": "3c6a7d3ae76a5aec78aac69db1af15cf",

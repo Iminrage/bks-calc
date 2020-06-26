@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.css": "/bks-calc/static/css/main.20a43277.chunk.css",
-    "main.js": "/bks-calc/static/js/main.cc335aaf.chunk.js",
-    "main.js.map": "/bks-calc/static/js/main.cc335aaf.chunk.js.map",
+    "main.css": "/bks-calc/static/css/main.7240923a.chunk.css",
+    "main.js": "/bks-calc/static/js/main.6f704114.chunk.js",
+    "main.js.map": "/bks-calc/static/js/main.6f704114.chunk.js.map",
     "runtime-main.js": "/bks-calc/static/js/runtime-main.99f25b8c.js",
     "runtime-main.js.map": "/bks-calc/static/js/runtime-main.99f25b8c.js.map",
-    "static/js/2.b9dcf4aa.chunk.js": "/bks-calc/static/js/2.b9dcf4aa.chunk.js",
-    "static/js/2.b9dcf4aa.chunk.js.map": "/bks-calc/static/js/2.b9dcf4aa.chunk.js.map",
+    "static/js/2.0c8d0d55.chunk.js": "/bks-calc/static/js/2.0c8d0d55.chunk.js",
+    "static/js/2.0c8d0d55.chunk.js.map": "/bks-calc/static/js/2.0c8d0d55.chunk.js.map",
     "index.html": "/bks-calc/index.html",
-    "precache-manifest.d5aed8caf4e5c52ae28db7b1a5b8109b.js": "/bks-calc/precache-manifest.d5aed8caf4e5c52ae28db7b1a5b8109b.js",
+    "precache-manifest.b2ca586cda6cc3d32f7ea159015b20f4.js": "/bks-calc/precache-manifest.b2ca586cda6cc3d32f7ea159015b20f4.js",
     "service-worker.js": "/bks-calc/service-worker.js",
-    "static/css/main.20a43277.chunk.css.map": "/bks-calc/static/css/main.20a43277.chunk.css.map",
-    "static/js/2.b9dcf4aa.chunk.js.LICENSE.txt": "/bks-calc/static/js/2.b9dcf4aa.chunk.js.LICENSE.txt",
+    "static/css/main.7240923a.chunk.css.map": "/bks-calc/static/css/main.7240923a.chunk.css.map",
+    "static/js/2.0c8d0d55.chunk.js.LICENSE.txt": "/bks-calc/static/js/2.0c8d0d55.chunk.js.LICENSE.txt",
+    "static/media/Geometria-Medium.woff": "/bks-calc/static/media/Geometria-Medium.45656b73.woff",
+    "static/media/Geometria-Medium.ttf": "/bks-calc/static/media/Geometria-Medium.86b1b85b.ttf",
+    "static/media/Geometria-Medium.eot": "/bks-calc/static/media/Geometria-Medium.90152a4f.eot",
     "static/media/Geometria.woff": "/bks-calc/static/media/Geometria.3c6a7d3a.woff",
     "static/media/Geometria.ttf": "/bks-calc/static/media/Geometria.4307d7ba.ttf",
     "static/media/Geometria.eot": "/bks-calc/static/media/Geometria.778525f6.eot",
@@ -26,8 +29,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.99f25b8c.js",
-    "static/js/2.b9dcf4aa.chunk.js",
-    "static/css/main.20a43277.chunk.css",
-    "static/js/main.cc335aaf.chunk.js"
+    "static/js/2.0c8d0d55.chunk.js",
+    "static/css/main.7240923a.chunk.css",
+    "static/js/main.6f704114.chunk.js"
   ]
 }
