@@ -14,6 +14,7 @@ export default (props) => {
         value={props.amount}
         onChange={props.typeFunction}
         onBlur={props.moneySeparate}
+        onInput={props.input}
       />
       <span className="purchase-amount__currency">
         {props.chosenCurrency.symbol}
