@@ -160,7 +160,9 @@ export default (props) => {
                     moneyAmountNumber * chosenCurrency.cost * comission +
                       moneyAmountNumber * chosenCurrency.cost
                   )
+                    .toFixed(2)
                     .toString()
+                    .replace(/[.]/, ",")
                     .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")}
                   &nbsp;₽
                 </div>
