@@ -8,3 +8,15 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Geometria";
+  src: url("./fonts/geometria/Geometria-Medium.eot");
+  src: local("Geometria Medium"), local("Geometria-Medium"),
+    url("./fonts/geometria/Geometria-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("./fonts/geometria/Geometria-Medium.woff") format("woff"),
+    url("./fonts/geometria/Geometria-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
