@@ -29,7 +29,7 @@ export default (props) => {
         </svg>
       </button>
       <div className="currensy-select__value">
-        {props.chosenCurrency.cost.toString().replace(/[.]/, ",") + " ₽"}
+        {props.chosenCurrency.cost.toString().replace(/[.]/, ",")}&nbsp;₽
       </div>
       {props.isCurrencyChanging && (
         <div className="currensy-select__dropdown">
