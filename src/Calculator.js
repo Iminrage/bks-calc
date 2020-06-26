@@ -46,23 +46,22 @@ export default (props) => {
     }
     setRealAmount(val);
   }
-  function getRealSliderValue() {
-    console.log(moneyAmountNumber);
-
-    if (moneyAmountNumber <= 1000) {
+  function getRealSliderValue(e) {
+    let amountOfMoney = +e.target.value.replace(/\s/g, "");
+    if (amountOfMoney <= 1000) {
       setRealAmount(0);
     } else {
       for (var i = 1; i < marks.length; i++) {
-        if (moneyAmountNumber < marks[i].sliderVal) {
+        if (amountOfMoney < marks[i].sliderVal) {
           setRealAmount(
             +(
-              (moneyAmountNumber - marks[i - 1].sliderVal) /
+              (amountOfMoney - marks[i - 1].sliderVal) /
                 (marks[i].sliderVal - marks[i - 1].sliderVal) +
               marks[i - 1].value
             ).toFixed(3)
           );
           break;
-        } else if (moneyAmountNumber >= 1000000) {
+        } else if (amountOfMoney >= 1000000) {
           setRealAmount(6);
         }
       }
@@ -77,7 +76,6 @@ export default (props) => {
         .replace(/\s/g, "")
         .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
     );
-    getRealSliderValue();
   }
   function currencyChange() {
     setCurrencyChanging(!currencyChanging);
@@ -109,6 +107,7 @@ export default (props) => {
               typeFunction={typeFunction}
               chosenCurrency={chosenCurrency}
               moneySeparate={moneySeparate}
+              input={getRealSliderValue}
             />
             <div className="calculator__slider-wrapper">
               <Slider
