@@ -47,28 +47,23 @@ export default (props) => {
     setRealAmount(val);
   }
   function getRealSliderValue() {
+    console.log(moneyAmountNumber);
+
     if (moneyAmountNumber <= 1000) {
-      setRealAmount(1000);
+      setRealAmount(0);
     } else {
       for (var i = 1; i < marks.length; i++) {
         if (moneyAmountNumber < marks[i].sliderVal) {
-          console.log(
-            (
-              moneyAmountNumber / marks[i].sliderVal +
+          setRealAmount(
+            +(
+              (moneyAmountNumber - marks[i - 1].sliderVal) /
+                (marks[i].sliderVal - marks[i - 1].sliderVal) +
               marks[i - 1].value
             ).toFixed(3)
           );
-
-          setRealAmount(
-            (
-              moneyAmountNumber /
-                (marks[i].sliderVal - marks[i - 1].sliderVal) +
-              marks[i - 1].value
-            ).toFixed(5)
-          );
           break;
         } else if (moneyAmountNumber >= 1000000) {
-          setRealAmount(1000000);
+          setRealAmount(6);
         }
       }
     }
@@ -82,6 +77,7 @@ export default (props) => {
         .replace(/\s/g, "")
         .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
     );
+    getRealSliderValue();
   }
   function currencyChange() {
     setCurrencyChanging(!currencyChanging);
@@ -91,74 +87,78 @@ export default (props) => {
     setCurrencyChanging(false);
   }
   function getMoneyAmountNumber() {
-    setMoneyAmountNumber(moneyAmount.replace(/\s/g, ""));
+    setMoneyAmountNumber(+moneyAmount.replace(/\s/g, ""));
   }
   useEffect(() => {
     getMoneyAmountNumber();
   }, [moneyAmount]);
   return (
     <div className="calculator">
-      <h2 className="calculator__title">Калькулятор</h2>
-      <div className="calculator__flex-wrapper">
-        <div className="calculator__col">
-          <CurrencySelect
-            chosenCurrency={chosenCurrency}
-            chooseCurrency={chooseCurrency}
-            isCurrencyChanging={currencyChanging}
-            currencyChange={currencyChange}
-          />
-          <PurchaseAmount
-            amount={moneyAmount}
-            typeFunction={typeFunction}
-            chosenCurrency={chosenCurrency}
-            moneySeparate={moneySeparate}
-          />
-          <div className="calculator__slider-wrapper">
-            <Slider
-              defaultValue={0}
-              getAriaValueText={valuetext}
-              min={0}
-              max={6}
-              step={0.001}
-              value={realAmount}
-              marks={marks}
-              onChange={getMoneyAmount}
+      <div className="container">
+        <h2 className="calculator__title">Калькулятор</h2>
+        <div className="calculator__flex-wrapper">
+          <div className="calculator__col">
+            <CurrencySelect
+              chosenCurrency={chosenCurrency}
+              chooseCurrency={chooseCurrency}
+              isCurrencyChanging={currencyChanging}
+              currencyChange={currencyChange}
             />
+            <PurchaseAmount
+              amount={moneyAmount}
+              typeFunction={typeFunction}
+              chosenCurrency={chosenCurrency}
+              moneySeparate={moneySeparate}
+            />
+            <div className="calculator__slider-wrapper">
+              <Slider
+                defaultValue={0}
+                getAriaValueText={valuetext}
+                min={0}
+                max={6}
+                step={0.001}
+                value={realAmount}
+                marks={marks}
+                onChange={getMoneyAmount}
+              />
+            </div>
           </div>
-        </div>
-        <div className="calculator__col ">
-          <div className="summary calculator__summary">
-            <div className="summary__position">
-              <div className="summary__title">
-                Комиссия за сделку и вывод валюты<sup>5</sup>
+          <div className="calculator__col ">
+            <div className="summary calculator__summary">
+              <div className="summary__position">
+                <div className="summary__title">
+                  Комиссия за сделку и&nbsp;вывод валюты<sup>5</sup>
+                </div>
+                <div className="summary__data">
+                  {Math.ceil(
+                    moneyAmountNumber * chosenCurrency.cost * comission
+                  )
+                    .toString()
+                    .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")}
+                  &nbsp;₽
+                </div>
               </div>
-              <div className="summary__data">
-                {Math.ceil(moneyAmountNumber * chosenCurrency.cost * comission)
-                  .toString()
-                  .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")}{" "}
-                ₽
+              <div className="summary__position">
+                <div className="summary__title">Курс с учетом комисси</div>
+                <div className="summary__data">
+                  {(chosenCurrency.cost * 1.0007902)
+                    .toFixed(4)
+                    .toString()
+                    .replace(/[.]/, ",")}
+                  &nbsp;₽
+                </div>
               </div>
-            </div>
-            <div className="summary__position">
-              <div className="summary__title">Курс с учетом комисси</div>
-              <div className="summary__data">
-                {(chosenCurrency.cost * 1.0007902)
-                  .toFixed(4)
-                  .toString()
-                  .replace(/[.]/, ",")}{" "}
-                ₽
-              </div>
-            </div>
-            <div className="summary__position">
-              <div className="summary__title">Общая сумма сделки*</div>
-              <div className="summary__data summary__data--primary">
-                {Math.ceil(
-                  moneyAmountNumber * chosenCurrency.cost * comission +
-                    moneyAmountNumber * chosenCurrency.cost
-                )
-                  .toString()
-                  .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")}{" "}
-                ₽
+              <div className="summary__position">
+                <div className="summary__title">Общая сумма сделки*</div>
+                <div className="summary__data summary__data--primary">
+                  {Math.ceil(
+                    moneyAmountNumber * chosenCurrency.cost * comission +
+                      moneyAmountNumber * chosenCurrency.cost
+                  )
+                    .toString()
+                    .replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")}
+                  &nbsp;₽
+                </div>
               </div>
             </div>
           </div>
