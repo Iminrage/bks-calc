@@ -10,6 +10,9 @@
     margin-bottom: 20px;
     padding: 0 40px 0 20px;
   }
+  @media screen and (max-width: 520px) {
+    padding: 0 10px;
+  }
 }
 .purchase-amount__title {
   display: block;
